@@ -23,7 +23,7 @@ header{
     /*width:min(860px);*/ 
     height:10%;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2rem 1fr 5rem;
     grid-template-rows: 1fr;
 
     grid-template-areas: 
@@ -31,6 +31,7 @@ header{
 
     /*decor */
     padding:0.5rem;
+    border-bottom: 1px solid rgb(30 27 75 / 14%);
 
 
 }
@@ -40,6 +41,10 @@ header{
 }
 .header-button{
     grid-area:button;
+
+}
+.header-button:hover{
+    background-color:#c9c9c9;
 }
 
 
@@ -68,6 +73,9 @@ button{
     margin:0px;
     padding:0px;
     border:1px solid black;
+    
+    /*Add hand when hovering*/
+    cursor:pointer;
 
 }
 
