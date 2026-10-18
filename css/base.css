@@ -1,17 +1,45 @@
+/*Phone size suited for iphone 16 */
+
 :root {
     font-family: "DM Sans:SemiBold", "DM Sans", sans-serif;
+    font-size:65,5%; /*10px */
+    /*Create root varible */
+    --standard: black;
+    --header1: #111021;
+    --paragraph: #68658b;
+
+    
 }
+
 
 body{
     box-sizing: border-box;
     display:flex;
     flex-direction:column;
+    
 }
 
 header{
-    width:min(860px);
+    /*width:min(860px);*/ 
     height:10%;
-    background-color: aqua;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-template-areas: 
+    "brandmark something button";
+
+    /*decor */
+    padding:0.5rem;
+
+
+}
+.brand-mark{
+    width:2rem;
+    grid-area:brandmark;
+}
+.header-button{
+    grid-area:button;
 }
 
 
@@ -24,7 +52,7 @@ header{
     flex-direction: column;
     justify-content:center;
 
-    width: min(860px);
+    /*width: min(860px);*/
 
     /*Decor */
     padding:56px 24px; 
@@ -34,17 +62,50 @@ header{
 
 /*Button */
 
+button{
+    background-color:white;
+    border-radius: 2vh;
+    margin:0px;
+    padding:0px;
+    border:1px solid black;
+
+}
+
 .app-buttons{
     display:flex;
+    flex-direction: column;
     
 }
 
-button{
+.app-button{
     box-sizing: border-box;
     display:flex;
     flex-direction: column;
     text-align: start;
+    margin:0.5rem 0rem;
 
     /*decor */
-    margin:5%;
+    background-color: white;
+    height:8rem;
+    justify-content: space-between;
+    padding:1.2rem;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    
+}
+.app-button:hover{
+    transform: translateY(-5px);
+    box-shadow:0 18px 35px rgb(30 27 75 / 13%);
+    background:#fdfdff;
+}
+
+.header-2{
+    color:var(--header1);
+    font-weight: 600;
+    font-size:1.4rem;
+
+
+}
+
+p, span{
+    color:var(--paragraph);
 }
