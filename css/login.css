@@ -1,3 +1,9 @@
+:root{
+    --muted: rgb(229, 229, 229);
+    --background-blue:#1e1b4b;
+
+}
+
 dialog{
     /*Make the popup full page */
     width: 100vw;
@@ -9,15 +15,28 @@ dialog{
     border: none;
     background: white;
 
-    /*Flex */
+    /*Flex: Commented out because it caused the dialog to not stay hidden*/
+    /* box-sizing: border-box;
+    display: flex;
+    flex-direction: column; */ 
+
+}
+
+.login-header, .login-main{
+        /*Flex */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-
 }
 .login-header{
-    background-color: #1e1b4b;
+    background-color:var(--background-blue);
     color:white;
+    p,span{
+        color:var(--muted);
+        padding:0;
+        margin:0;
+    }
+
 
     box-sizing: border-box;
     display: flex;
@@ -34,7 +53,12 @@ dialog{
     display: flex;
     flex-direction: column;
 
-    padding: 30px 24px 50px
+    padding: 30px 24px 50px;
+
+    h2{
+        margin:0px;
+        padding:0px;
+    }
 
 
 }
@@ -44,15 +68,37 @@ dialog{
     flex-direction: column;
 
     /*decor */
+    font-weight:600;
     
     
 
 
 }
-.login-input>input{
-    margin:0.5rem;
+.email, .password{
+    margin: 0.7rem;
+    font-weight: 500;
+    
+
+    input{
+        width:100%;
+
+    }
 }
-.login-input>h2{
-    padding:0px;
-    margin:0px;
+
+.login-button{
+    /*Change the background color to blue */
+    background-color:var(--background-blue);
+    /*Change the color to muted*/
+    color:white;
+    /*Make the border radius rounded, remove border */
+    border-radius: 2vh;
+    height:2.4rem;
+    border:inherit;
 }
+
+.close-login{
+    
+    
+
+}
+
