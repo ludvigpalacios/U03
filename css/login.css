@@ -1,0 +1,58 @@
+dialog{
+    /*Make the popup full page */
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: white;
+
+    /*Flex */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+}
+.login-header{
+    background-color: #1e1b4b;
+    color:white;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    min-height: auto;
+    padding: 30px 24px 50px
+
+
+}
+
+.login-main{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 24px 50px
+
+
+}
+.login-input{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    /*decor */
+    
+    
+
+
+}
+.login-input>input{
+    margin:0.5rem;
+}
+.login-input>h2{
+    padding:0px;
+    margin:0px;
+}
