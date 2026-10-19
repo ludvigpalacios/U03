@@ -27,6 +27,7 @@ dialog{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    
 }
 .login-header{
     background-color:var(--background-blue);
@@ -50,15 +51,14 @@ dialog{
 
 .login-main{
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
 
     padding: 30px 24px 50px;
 
-    h2{
-        margin:0px;
-        padding:0px;
-    }
+
+
 
 
 }
@@ -75,12 +75,20 @@ dialog{
 
 }
 .email, .password{
-    margin: 0.7rem;
+    margin: 0.7rem 0px;
     font-weight: 500;
     
 
     input{
+        box-sizing: border-box;
         width:100%;
+        
+        /*decor */
+        padding:1rem 0.8rem;
+        border-radius: 2vh;
+        border:1px solid grey;
+
+        
 
     }
 }
@@ -97,7 +105,7 @@ dialog{
 }
 
 .close-login{
-    
+
     
 
 }
