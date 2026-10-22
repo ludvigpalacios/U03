@@ -73,7 +73,7 @@
             </button>
 
             <p>New to BrainRush?</p>
-            <a href="#">Create an account</a>
+            <a href="#" id="accountCreate">Create an account</a>
 
             <span>Demo accounts and progress are stored locally on this device. </span>
             <button href="#" id="close-login">Go back</button>
@@ -81,9 +81,57 @@
 
         </section>
     </dialog> 
+        <dialog id="account-create-page">
+        <section class="login-header">
+            <span>Your thinking, remembered</span>
+            <h1>Pick up where you left off</h1>
+            <p>Save quiz progress, keep your high score, and challenge people from the BrainRush community</p>
+        </section>
+
+        <section class="login-main">
+            <span>Welcome back</span>
+            <h2>Create account to continue</h2>
+            <p>Your next challenge is waiting</p>
+
+
+            <div class="login-input">
+                <span>Username</span>
+                <label class="email">
+                    <input id="playerUser" label="username" placeholder="noobslayer420">
+                </label>
+
+                <span>Email</span>
+                <label class="email">
+                    <input id="email" label="Email" placeholder="youremail@email.com">
+                </label>
+                <span>Password</span>
+                <label class="password">
+                    <input id="password" label="Password" placeholder="At least 6 characters">
+                </label>
+            </div>
+
+            <button id="createAccount-button" class="login-button">
+                Create account
+            </button>
+
+            <p>Already have an account?</p>
+            <a href="#" id="closeCreateAccount">Login</a>
+
+            <span>Demo accounts and progress are stored locally on this device. </span>
+            <button href="#" id="closeCreateAccount">Go back</button>
+            
+
+        </section>
+    </dialog> 
+
+
 
 
     <script src="js/base.js" defer></script>
+    <script src="js/createAccount.js" defer></script>
+    <script src="js/login.js" defer></script>
+
+
     
     
 </body>
