@@ -6,50 +6,11 @@ const loginButton = document.querySelector("#login-button")
 
 //Grab paragraph 
 const feedbackContainer = document.querySelector("#loginFeedbackHolder");
-//We want to grab these inputs, and compare it in a foreach if it matches
 
-//We have to fetch the data here, reusing code from createAccount
-
-//Get the JSON
-
-//This is not needed as it was created in the create account page already, will be removed later 
-/*
-try{
-    getAccount= localStorage.getItem("account");
-    console.log("Grabbed Account JSON: ", getAccount);
-    console.log("getAccount length")
-    //Check if the JSON is empty
-    if(getAccount!=null){
-        //Parse/Convert the JSON and assign it to Account
-        console.log("Grabbed accounts");
-        Account = JSON.parse(getAccount);
-        console.log(Account);
-    }
-    console.log("Account:", Account);
-}catch(error){
-    //If the JSON data is not valid json format
-    if(error.name===SyntaxError){
-        console.log("Saved account data is not valid JSON format");
-
-    }else{
-        //If any other unknown error has occured, throw the specific error so that the user can google it
-        console.log("Some other unknown error has occured!", error.message);
-
-    }
-    
-}
-
-AccountID = Account.length;
-console.log("Accounts in store right now", AccountID);*/
-
-//Debugging, finding a way to also record the button enter
-/*window.addEventListener("keydown", (e)=>{
-    console.log("Pressed button", e);
-})
-window.addEventListener("click", (e)=>{
-    console.log("Clicked target", e);
-})*/
-//Listen when the login button is clicked or when the enter button is pressed 
+//Extra - Confetti
+const confetti = document.querySelectorAll(".gifConfetti");
+console.log("confetti",confetti);
+//JSON is already read in createAccount.js, we use functions and variables from there
 window.addEventListener("keydown", (e)=>{
     if(e.key==="Enter"){
         console.log("enter key has been entered");
@@ -73,11 +34,14 @@ function checkForAccount (Account, email, password){
     Account.forEach(user => {
         console.log("Iterations: ", i);
         if(user.email === email && user.password === password){
-            //Log out that account was not found
-            //What values to return? The AccountID!
+
             console.log("This user has been found: ",user.email);
             feedbackContainer.textContent="Account found!";
             feedbackContainer.classList.add("comfirm");
+
+            //Adding confetti gif
+            addConfetti();
+
             //return user.length;
             return;
 
@@ -86,9 +50,21 @@ function checkForAccount (Account, email, password){
             console.log("Account was not found!");
             feedbackContainer.textContent="Account not found!";
             feedbackContainer.classList.add("warning");
-
         }
         i++;
+    })
+}
+
+function addConfetti(){
+    confetti.forEach(confettiGif => {
+        console.log("Confetti ran");
+        confettiGif.classList.remove("hide");
+    })
+}
+function removeConfetti(){
+    confetti.forEach(confettiGif => {
+        console.log("Confetti ran");
+        confettiGif.classList.add("hide");
     })
 }
 

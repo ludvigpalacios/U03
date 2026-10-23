@@ -74,9 +74,9 @@ createAccountBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     //Debugging
-    /*console.log(grabUser.value);
+    console.log(grabUser.value);
     console.log(grabEmail.value);
-    console.log(grabPassword.value);*/
+    console.log(grabPassword.value);
 
     //Everytime we press create account, save the account in the said Array
     //Create an condition where it checks if the input was empty 
@@ -98,7 +98,7 @@ createAccountBtn.addEventListener("click", (e) => {
         //Use a try catch later here 
 
     //Check now for any duplicates
-    }else if(!grabEmail.value.includes("@") && !grabEmail.value.includes(".com") || !grabEmail.value.includes(".se")){
+    }else if(!grabEmail.value.includes("@")){
         console.log("Your email is invalid! It must include a @ and a proper conocation*!");
         return;
 
