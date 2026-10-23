@@ -135,7 +135,6 @@ p, span{
     /*Put the buttons at the start end of the screen */
     margin-top:3vh;
     margin-bottom:0rem;
-
     transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 
     button {
@@ -150,4 +149,26 @@ p, span{
 
 .hide {
     display:none
+}
+
+.warning {
+    color:rgb(122, 0, 0);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding:0rem;
+    margin:0.5rem 0rem;
+    margin-top:0rem;
+    margin-bottom:1rem;
+    
+}
+.comfirm{
+    color:green;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding:0rem;
+    margin:0.5rem 0rem;
+    margin-top:0rem;
+    margin-bottom:1rem;
+
+
 }
