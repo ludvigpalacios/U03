@@ -1,4 +1,4 @@
-# Game Website - Login & Create Account
+# Quiz app - Login & Create Account
 
 This is a small front-end project where I built a website with a login page, a create account page, and a simple menu with selection buttons such as **Play**, **Leaderboard**, and **Friends**.
 
