@@ -80,6 +80,13 @@ createAccountBtn.addEventListener("click", (e) => {
 
     //Everytime we press create account, save the account in the said Array
     //Create an condition where it checks if the input was empty 
+    
+
+    const Duplicates = checkDuplicateAccount(Account ,grabUser.value, grabEmail.value);
+    console.log("Duplicates:", Duplicates);
+    //Return userDuplicate, EmailDuplicate or PasswordDuplicate to either true of false
+
+
     if(grabUser.value=== "" || grabEmail.value== "" || grabPassword.value===""){
         console.log("Empty!");
         return;
@@ -90,8 +97,21 @@ createAccountBtn.addEventListener("click", (e) => {
         //If the password isn't at least 6 length throw and error 
         //Use a try catch later here 
 
+    //Check now for any duplicates
+    }else if(!grabEmail.value.includes("@") && !grabEmail.value.includes(".com") || !grabEmail.value.includes(".se")){
+        console.log("Your email is invalid! It must include a @ and a proper conocation*!");
+        return;
 
-    }else{
+    }else if(Duplicates.userDuplicate){
+        console.log("That user already exists!");
+        return; 
+    }
+    else if (Duplicates.emailDuplicate){
+        console.log("That email already exists");
+        return;
+    }
+    else{
+        //Copy the values and add it to last array in the account database 
         const [username,email, password]= [grabUser.value, grabEmail.value, grabPassword.value];
         Account [AccountID] = {username, email, password};
 
@@ -109,6 +129,33 @@ createAccountBtn.addEventListener("click", (e) => {
     console.log("Accounts stored now:", AccountID);
 
 })
+
+
+//Functions
+
+function checkDuplicateAccount(Account ,User, Email){
+    //Compare if the input matches any previous objects, if it does then return and ask the user to type again 
+    //A foreach function where it compares grabUser, grabEmail and GrabPassword to the first account then second and so on 
+    let userDuplicate=false;
+    let emailDuplicate=false;
+    Account.forEach(user => {
+        
+        if(user.username===User){
+            //Return UserDuplicate, EmailDuplicate or PasswordDuplicate
+            return userDuplicate=true;
+
+        }else if(user.email===Email){
+            return emailDuplicate=true;
+
+        }
+        else {
+            return;
+        }
+    })
+    return {userDuplicate, emailDuplicate};
+
+
+}
 
 function grabAccount(Account){
 
