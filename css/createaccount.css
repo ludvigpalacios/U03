@@ -1,0 +1,9 @@
+
+.goBackButton{ 
+    width:10rem;
+    height:2rem;
+    justify-self:center;
+}
+.CreateAccount-button{
+    background-color: aqua;
+}
