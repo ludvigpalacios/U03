@@ -37,6 +37,9 @@ closeLogin.addEventListener("click", ()=> {
     console.log("login page closened");
     grabLogin.close();
     console.log("")
+
+    //Using function from login.js
+    removeConfetti();
 })
 
 
@@ -57,6 +60,35 @@ closeCreateAccount.forEach(close => {
         e.preventDefault(); /*Prevent the page from reloading */
         openCreateAccount.close();
     }) 
+
+})
+
+//Debugging
+/*window.addEventListener("click", (e)=>{
+    console.log(e);
+})*/
+
+//grab the App Selection buttons
+const grabSelectionButtons = document.querySelectorAll("button#appSelectionButton");
+
+window.addEventListener("click", (e)=> {
+    //console.log(e.target.matches("button#appSelectionButton"));
+    
+    if(e.target.matches("button#appSelectionButton")){
+        //Reset all other buttons, delete their selectedButton class
+        grabSelectionButtons.forEach(selectedButton => {
+            selectedButton.classList.remove("selectedButton");
+        })
+
+        //console.log("Selected target found");
+        const grabButton =  e.target.closest("button#appSelectionButton");
+        //console.log(grabButton);
+        grabButton.classList.add("selectedButton");
+
+    }
+
+    //Grab button the clicked selected button
+    
 
 })
 
