@@ -60,11 +60,11 @@
             <div class="login-input">
                 <span>Email</span>
                 <label class="email">
-                    <input id="email" label="Email" placeholder="youremail@email.com">
+                    <input id="loginInputEmail" label="Email" autofill="email" placeholder="youremail@email.com">
                 </label>
                 <span>Password</span>
                 <label class="password">
-                    <input id="password" label="Password" placeholder="At least 6 characters">
+                    <input id="loginInputPassword" label="Password" autofill="password" placeholder="At least 6 characters">
                 </label>
             </div>
 
@@ -102,11 +102,18 @@
 
                 <span>Email</span>
                 <label class="email">
-                    <input id="createEmail" label="Email" placeholder="youremail@email.com">
+                    <input id="createEmail" label="Email" list="emailSuggestions" autofill="email" placeholder="youremail@email.com">
+
+                    <datalist id="emailSuggestions">
+                        <!--Suggest common emails-->
+                        <option value="@gmail.com"></option>
+                        <option value="@outlook.com"></option>
+                        <option value="@icloud.com"></option>
+                    </datalist>
                 </label>
                 <span>Password</span>
                 <label class="password">
-                    <input id="createPassword" label="Password" placeholder="At least 6 characters">
+                    <input id="createPassword" label="Password" autofill="password" placeholder="At least 6 characters">
                 </label>
             </div>
 
