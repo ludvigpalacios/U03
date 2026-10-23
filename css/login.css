@@ -54,8 +54,8 @@ dialog{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-
     padding: 30px 24px 50px;
+    
 
 
 
@@ -104,9 +104,18 @@ dialog{
     border:inherit;
 }
 
-.close-login{
-
-    
+.loginBottomContainer{
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+    margin:0px;
+    gap:0.5rem;
 
 }
 
+#close-login{
+    width:10rem;
+    height:2rem;
+    justify-self:center;
+}
