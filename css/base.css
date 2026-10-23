@@ -134,14 +134,17 @@ p, span{
 
     /*Put the buttons at the start end of the screen */
     margin-top:3vh;
-    margin-bottom:0rem;
+    margin-bottom:1rem;
     transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    box-shadow:0 8px 30px #1e1b4b33;
 
     button {
         border:none;
         padding:1%;
         width:7rem;
         height: stretch;
+        background-color: #efeff7;
+        
 
     }
 
@@ -171,4 +174,19 @@ p, span{
     margin-bottom:1rem;
 
 
+}
+
+.app-selection-buttons button.selectedButton{
+    background-color: #ffff;
+    box-shadow:0 2px 10px #1e1b4b17;
+}
+
+/* Gif, not important*/
+.gifConfetti{
+    position:fixed;
+    object-fit: cover;
+    z-index:9999;
+    pointer-events: none;
+    height:100%;
+    width: 100%;
 }
