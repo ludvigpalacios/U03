@@ -9,21 +9,38 @@ const feedbackContainer = document.querySelector("#loginFeedbackHolder");
 
 //Extra - Confetti
 const confetti = document.querySelectorAll(".gifConfetti");
-console.log("confetti",confetti);
+//console.log("confetti",confetti);
 //JSON is already read in createAccount.js, we use functions and variables from there
+
+const adminContainer = document.querySelector(".adminContainer");
+
+//Check for admin
+let Admin = false; 
 window.addEventListener("keydown", (e)=>{
     if(e.key==="Enter"){
         console.log("enter key has been entered");
-        //Run main function
-        checkForAccount(Account, grabLoginEmail.value, grabhLoginPassword.value);
+        //Check for admin credentials
+        Admin = checkAdminAccount(grabLoginEmail.value, grabhLoginPassword.value, Admin);
+        console.log("Admin: ", Admin);
+        if(!Admin){
+            //Run the function, and return if an user with matching email and password is found
+            checkForAccount(Account, grabLoginEmail.value, grabhLoginPassword.value);
+        }
 
     }
 })
 window.addEventListener("click", (e)=> {
     if(e.target.matches("button#login-button")){
         console.log("button has been clicked");
-        //Run the function, and return if an user with matching email and password is found
-        checkForAccount(Account, grabLoginEmail.value, grabhLoginPassword.value);
+        
+        //Check for admin credentials
+        Admin = checkAdminAccount(grabLoginEmail.value, grabhLoginPassword.value, Admin);
+        console.log("Admin: ", Admin);
+        if(!Admin){
+            //Run the function, and return if an user with matching email and password is found
+            checkForAccount(Account, grabLoginEmail.value, grabhLoginPassword.value);
+        }
+        
 
     }
 })
@@ -66,6 +83,35 @@ function removeConfetti(){
         console.log("Confetti ran");
         confettiGif.classList.add("hide");
     })
+}
+function checkAdminAccount(Email, Password){
+    //Check if the input user and email matches an admin account, if it does then show a hidden button below go back where it flushes the accounts 
+    if(Email.toLowerCase().includes("admin") && Password.toLowerCase().includes("secretpassword")){
+        console.log("Admin account found!");
+        //adminContainer.newElement
+        const newButton = document.createElement("button");
+        newButton.id="close-login";
+        newButton.textContent="Flush accounts";
+        //Add a function here where if it its clicked, flush all accounts
+        adminContainer.appendChild(newButton);
+        runFlushAccounts(newButton);
+        
+
+        return true;
+    }
+    return false;
+
+}
+function runFlushAccounts(adminButton){
+    localStorage.removeItem("account");
+    adminButton.addEventListener("click", (e) => {
+        localStorage.removeItem("account");
+        feedbackContainer.textContent="Accounts flushed!";
+        feedbackContainer.classList.add("warning");
+
+
+    })
+
 }
 
 
