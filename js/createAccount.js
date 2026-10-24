@@ -1,11 +1,13 @@
-//Create an array that saves 
-//Create all 3 variables that are gonnan be stored
-/* const username = "";
-const email = "";
-const password = ""; 
 
-const Account = {username, email, password};  */
+//Grab elements
+const grabUser=document.querySelector("#playerUser");
+const grabEmail=document.querySelector("#createEmail");
+const grabPassword=document.querySelector("#createPassword");
 
+const createAccountBtn=document.querySelector("#createAccount-button");
+
+const createFeedbackContainer = document.querySelector("#createAccountFeedbackHolder");
+console.log("createFeedbackContainer",createFeedbackContainer);
 
 
 //const Account= []; //Create multiple accounts
@@ -61,12 +63,6 @@ if(Account===!null || Account.length===0){
 
 
 
-//Listen when the Create button is clicked
-const grabUser=document.querySelector("#playerUser");
-const grabEmail=document.querySelector("#createEmail");
-const grabPassword=document.querySelector("#createPassword");
-
-const createAccountBtn=document.querySelector("#createAccount-button");
 
 //When we click on the button, we want to store these values somehow 
 
@@ -86,9 +82,12 @@ createAccountBtn.addEventListener("click", (e) => {
     console.log("Duplicates:", Duplicates);
     //Return userDuplicate, EmailDuplicate or PasswordDuplicate to either true of false
 
+    //Check for admin account
+    checkAdminAccount(Account, grabUser.value, grabEmail.value);
 
     if(grabUser.value=== "" || grabEmail.value== "" || grabPassword.value===""){
         console.log("Empty!");
+        createFeedbackContainer.textContent="Empty!";
         return;
         
     }else if(grabPassword.value.length<6){
@@ -98,28 +97,45 @@ createAccountBtn.addEventListener("click", (e) => {
         //Use a try catch later here 
 
     //Check now for any duplicates
+    }else if(Duplicates.emailDuplicate && Duplicates.userDuplicate){
+        createFeedbackContainer.textContent="The email and username already exists!";
+        createFeedbackContainer.classList.add("warning");
+
+
     }else if(!grabEmail.value.includes("@")){
         console.log("Your email is invalid! It must include a @ and a proper conocation*!");
+        createFeedbackContainer.textContent="Your email must include @ or a proper conotation!";
+        createFeedbackContainer.classList.add("warning");
+
         return;
 
     }else if(Duplicates.userDuplicate){
         console.log("That user already exists!");
+        createFeedbackContainer.textContent="That user already exists!";
+        createFeedbackContainer.classList.add("warning");
+
         return; 
     }
     else if (Duplicates.emailDuplicate){
         console.log("That email already exists");
+        createFeedbackContainer.classList.add("warning");
+
+        createFeedbackContainer.textContent="That email aready exists)"
         return;
     }
     else{
         //Copy the values and add it to last array in the account database 
-        const [username,email, password]= [grabUser.value, grabEmail.value, grabPassword.value];
-        Account [AccountID] = {username, email, password};
+        createFeedbackContainer.textContent="Account created!";
+        createFeedbackContainer.classList.add("comfirm");
+
+        const [username,email, password, score]= [grabUser.value, grabEmail.value, grabPassword.value];
+        Account [AccountID] = {username, email, password, score};
 
     }
     
     //Log the results
     console.log(`User ${AccountID} created!`);
-    logAccount(Account);    
+    //logAccount(Account);    
 
     //We want to turn this into JSON 
     const accountAsJSON=JSON.stringify(Account);
@@ -136,24 +152,28 @@ createAccountBtn.addEventListener("click", (e) => {
 function checkDuplicateAccount(Account ,User, Email){
     //Compare if the input matches any previous objects, if it does then return and ask the user to type again 
     //A foreach function where it compares grabUser, grabEmail and GrabPassword to the first account then second and so on 
-    let userDuplicate=false;
-    let emailDuplicate=false;
-    Account.forEach(user => {
-        
+    /*let userDuplicate=false;
+    let emailDuplicate=false;*/
+    for(const user of Account) {
+        if(user.username===User && user.email===Email){
+            console.log("Email and username duplicate found ");
+            /*userDuplicate=true;
+            emailDuplicate=true;
+            return;*/
+            return {userDuplicate:true, emailDuplicate:true};
+        }
         if(user.username===User){
             //Return UserDuplicate, EmailDuplicate or PasswordDuplicate
-            return userDuplicate=true;
+            console.log("Username duplicate found");
+            return {userDuplicate:true, emailDuplicate:false};
 
-        }else if(user.email===Email){
-            return emailDuplicate=true;
+        }if(user.email===Email){
+            console.log("email duplicate found!");
+            return {userDuplicate:false, emailDuplicate:true};
 
         }
-        else {
-            return;
-        }
-    })
-    return {userDuplicate, emailDuplicate};
-
+    }
+    return {userDuplicate:false, emailDuplicate:false};
 
 }
 
@@ -161,6 +181,8 @@ function grabAccount(Account){
 
 
 }
+
+
 
 function logAccount(Users){
     Users.forEach(Account => {
