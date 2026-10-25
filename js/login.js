@@ -101,6 +101,11 @@ function checkAdminAccount(Email, Password){
         //Add a function here where if it its clicked, flush all accounts
         adminContainer.appendChild(newButton);
         runFlushAccounts(newButton);
+
+        feedbackContainer.textContent="Admin mode initiated!";
+        feedbackContainer.classList.add("comfirm");
+
+
         
 
         return true;

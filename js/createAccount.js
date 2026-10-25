@@ -99,10 +99,13 @@ function runAccountCreation(){
     if(grabUser.value=== "" || grabEmail.value== "" || grabPassword.value===""){
         console.log("Empty!");
         createFeedbackContainer.textContent="Empty!";
+        createFeedbackContainer.classList.add("warning");
         return;
         
     }else if(grabPassword.value.length<6){
         console.log("Password is too small, it must be 6 characters minimum!");
+        createFeedbackContainer.textContent="Password is too small, it must be 6 characters minimum!";
+        createFeedbackContainer.classList.add("warning");
         return;
         //If the password isn't at least 6 length throw and error 
         //Use a try catch later here 
