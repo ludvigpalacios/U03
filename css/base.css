@@ -128,7 +128,6 @@ button{
     display:flex;
     align-self:center;
     
-    flex-basis: 21rem;
     background-color: #efeff7;
     border:none;
     height:40px;
@@ -197,15 +196,41 @@ button{
     width: 100%;
 }
 
-@media (max-width:1080px){
+#createAccount{
+    color:inherit;
+}
+
+@media (min-width:700px){
+    #appSelectionButton{
+        width:16rem;
+        height:4rem;
+        font-size:large;
+        border-radius: 3vh;
+    }
+}
+
+@media (max-width:1000px){
     .topApp-selection-buttons{
         display:none;
     }
 }
 
-@media (min-width:1080px){
-    body {
-        /*font-size:100%;*/
+@media (min-width:1000px){
+
+    .main-app-header{
+        font-size:1.5rem;
+    }
+    .topApp-selection-buttons{
+        margin:0.5rem;
+        
+        
+    }
+    #appSelectionButton{
+        margin:2px;
+        width:10rem;
+        height:3rem;
+        font-size:large;
+        
     }
     .bottomApp-selection-buttons{
         display:none;
@@ -221,11 +246,16 @@ button{
             box-sizing: border-box;
             text-align:center;
             border:1px solid grey;
-
-            .header-2, >*{
+            padding:4rem;
+            span{
+                font-size:1.5rem;
+            }
+            .header-2{
                 font-size:250%;
+                color:#111021;
                 
             }
+            
             
         }
     }header{
@@ -259,5 +289,8 @@ button{
         }
 
 
+    }
+    #saveProgress{
+        font-size:1.2rem;
     }
 }
