@@ -27,9 +27,11 @@
         <button class="header-button" id="openLogin">Log in</button>
         </header>
     <main class="main-app">
-        <p> 5 questions · 5 minutes</p>
-        <h1> Choose your challenge</h1>
-        <p>Stretch your reasoning or spark your imagination. Pick a question style to begin</p>
+        <div class="main-app-header">
+            <p> 5 questions · 5 minutes</p>
+            <h1> Choose your challenge</h1>
+            <p>Stretch your reasoning or spark your imagination. Pick a question style to begin</p>            
+        </div>
 
         <div class="app-buttons">
             <button class="app-button" href="#0">
@@ -43,7 +45,7 @@
                 <span>Ideas, stories, and imagination</span>
             </button>
         </div>
-        <p>Want to save your progress?
+        <p id="saveProgress">Want to save your progress?
             <a href="#" id="createAccount">Create a free account</a>
         </p>
 
@@ -58,7 +60,7 @@
         <div class="login-page-body">
             <img  class="gifConfetti hide" src="gifs/confetti.gif" aria-label="confetti gif"> 
             <section class="login-header">
-                <div>
+                <div class="login-header-text">
                     <span>Your thinking, remembered</span>
                     <h1>Pick up where you left off</h1>
                     <p>Save quiz progress, keep your high score, and challenge people from the BrainRush community</p>
@@ -121,9 +123,9 @@
                 <p id="createAccountFeedbackHolder">Your next challenge is waiting</p>
 
 
-                <div class="login-input">
+                <div class="create-input">
                     <span>Username</span>
-                    <label class="email">
+                    <label class="email username">
                         <input id="playerUser" label="username" placeholder="noobslayer420">
                     </label>
 
