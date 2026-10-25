@@ -1,3 +1,6 @@
+//Grab login window
+const loginPage = document.querySelector("#login-page");
+
 //Grab the login email and password 
 const grabLoginEmail = document.querySelector("#loginInputEmail");
 const grabhLoginPassword = document.querySelector("#loginInputPassword");
@@ -14,9 +17,10 @@ const confetti = document.querySelectorAll(".gifConfetti");
 
 const adminContainer = document.querySelector(".adminContainer");
 
+
 //Check for admin
 let Admin = false; 
-window.addEventListener("keydown", (e)=>{
+loginPage.addEventListener("keydown", (e)=>{
     if(e.key==="Enter"){
         console.log("enter key has been entered");
         //Check for admin credentials
@@ -29,7 +33,7 @@ window.addEventListener("keydown", (e)=>{
 
     }
 })
-window.addEventListener("click", (e)=> {
+loginPage.addEventListener("click", (e)=> {
     if(e.target.matches("button#login-button")){
         console.log("button has been clicked");
         
@@ -85,8 +89,10 @@ function removeConfetti(){
     })
 }
 function checkAdminAccount(Email, Password){
+    const stringEmail=String(Email);
+    const stringPassword=String(Password);
     //Check if the input user and email matches an admin account, if it does then show a hidden button below go back where it flushes the accounts 
-    if(Email.toLowerCase().includes("admin") && Password.toLowerCase().includes("secretpassword")){
+    if(stringEmail.toLowerCase().includes("admin") && stringPassword.toLowerCase().includes("secretpassword")){
         console.log("Admin account found!");
         //adminContainer.newElement
         const newButton = document.createElement("button");
