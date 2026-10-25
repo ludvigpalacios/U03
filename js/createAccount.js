@@ -1,3 +1,5 @@
+//Grab create page window
+const createPage = document.querySelector("#account-create-page");
 
 //Grab elements
 const grabUser=document.querySelector("#playerUser");
@@ -25,9 +27,8 @@ try{
         //Parse/Convert the JSON and assign it to Account
         console.log("Grabbed accounts");
         Account = JSON.parse(getAccount);
-        console.log(Account);
     }
-    console.log("Account:", Account);
+    console.log("Accounts:", Account);
 }catch(error){
     //If the JSON data is not valid json format
     if(error.name===SyntaxError){
@@ -43,7 +44,6 @@ try{
 
 let i=0;
 Account.forEach(index => {
-    
     console.log(`Account ${i} username:  ${index.username}`);
     console.log(`Account ${i} email:  ${index.email}`);
     console.log(`Account ${i} password:  ${index.password}`);
@@ -65,10 +65,21 @@ if(Account===!null || Account.length===0){
 
 
 //When we click on the button, we want to store these values somehow 
+createPage.addEventListener("keydown", (e)=>{
+    if(e.key==="Enter"){
+        e.preventDefault();
+        runAccountCreation();
+    }
+})
 
 createAccountBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    runAccountCreation();
 
+});
+//Functions
+
+function runAccountCreation(){
     //Debugging
     console.log(grabUser.value);
     console.log(grabEmail.value);
@@ -144,10 +155,8 @@ createAccountBtn.addEventListener("click", (e) => {
     AccountID++;
     console.log("Accounts stored now:", AccountID);
 
-})
+}
 
-
-//Functions
 
 function checkDuplicateAccount(Account ,User, Email){
     //Compare if the input matches any previous objects, if it does then return and ask the user to type again 
