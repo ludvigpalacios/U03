@@ -2,7 +2,7 @@
 
 :root {
     font-family: "DM Sans:SemiBold", "DM Sans", sans-serif;
-    font-size:65,5%; /*10px */
+    font-size:100%; /*10px */
     /*Create root varible */
     --standard: black;
     --header1: #111021;
@@ -10,6 +10,7 @@
 
     
 }
+
 
 
 body{
@@ -21,7 +22,7 @@ body{
 
 header{
     /*width:min(860px);*/ 
-    height:10%;
+    height:2rem;
     display:grid;
     grid-template-columns: 10rem  1fr 5rem;
     grid-template-rows: 1fr;
@@ -41,6 +42,9 @@ header{
 }
 .header-button{
     grid-area:button;
+    border:1px solid grey;
+    box-shadow:0 18px 35px rgb(30 27 75 / 13%);
+
 
 }
 .header-button:hover{
@@ -63,6 +67,10 @@ header{
     padding:56px 24px 0px 24px; 
     text-align:center;
     height:100vh;
+    p, span{
+        color:var(--paragraph);
+    
+    }
 
 }
 
@@ -111,20 +119,16 @@ button{
     color:var(--header1);
     font-weight: 600;
     font-size:1.4rem;
-
-
 }
 
-p, span{
-    color:var(--paragraph);
-}
 
-.app-selection-buttons{
+
+.bottomApp-selection-buttons, .topApp-selection-buttons{
     box-sizing: border-box;
     display:flex;
     align-self:center;
     
-    width: 21rem;
+    flex-basis: 21rem;
     background-color: #efeff7;
     border:none;
     height:40px;
@@ -137,6 +141,8 @@ p, span{
     margin-bottom:1rem;
     transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
     box-shadow:0 8px 30px #1e1b4b33;
+
+    grid-area:app-selection-buttons;
 
     button {
         border:none;
@@ -176,7 +182,7 @@ p, span{
 
 }
 
-.app-selection-buttons button.selectedButton{
+.topApp-selection-buttons button.selectedButton, .bottomApp-selection-buttons button.selectedButton{
     background-color: #ffff;
     box-shadow:0 2px 10px #1e1b4b17;
 }
@@ -189,4 +195,69 @@ p, span{
     pointer-events: none;
     height:100%;
     width: 100%;
+}
+
+@media (max-width:1080px){
+    .topApp-selection-buttons{
+        display:none;
+    }
+}
+
+@media (min-width:1080px){
+    body {
+        /*font-size:100%;*/
+    }
+    .bottomApp-selection-buttons{
+        display:none;
+    }
+    div.app-buttons{
+        flex-direction:row;
+        justify-content: center;
+        gap:10rem;
+        .app-button{
+            width:30rem;
+            height:30rem;
+            display:flex;
+            box-sizing: border-box;
+            text-align:center;
+            border:1px solid grey;
+
+            .header-2, >*{
+                font-size:250%;
+                
+            }
+            
+        }
+    }header{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+
+        grid-template-areas: 
+        "brandmark app-selection-buttons button";
+        height:fit-content;
+
+        
+        .topApp-selection-buttons{
+            margin:0px;
+            justify-self:center;
+            height:3.5rem;
+            >*{
+                width:10rem;
+                font-size:1.2rem;
+                
+            }
+        }
+        .brand-mark{
+            width:4rem;
+
+        }
+        .header-button{
+            margin-left:auto;
+            width:10rem;
+            border:1px solid grey;
+            font-size:1.2rem;
+        }
+
+
+    }
 }
