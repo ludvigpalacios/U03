@@ -88,6 +88,8 @@ window.addEventListener("click", (e)=> {
     }
 
     //Grab button the clicked selected button
+
+    //When any of the top selection buttons are clicked, show the second page 
     
 
 })
