@@ -78,7 +78,11 @@ function displayLeaderboard() {
 
     const score = document.createElement("span");
     score.setAttribute("role", "cell");
-    score.textContent = `${player.score}/5`;
+    
+    const pointsCorrect = 100;
+    const points = player.score * pointsCorrect;
+
+    score.textContent = `${points} points`;
 
     row.append(rank, playerCell, quizzes, score);
     leaderboardBody.appendChild(row);
